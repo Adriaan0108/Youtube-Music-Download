@@ -1,0 +1,30 @@
+{
+	"manifest_version": 3,
+	"name": "Youtube Music Download",
+	"description": "Allows you to download Youtube Music songs on free-mp3-download.net",
+	"version": "1.0",
+	"permissions": ["tabs"],
+	"host_permissions": ["https://music.youtube.com/*","https://free-mp3-download.net/"],
+	"action": {
+		"default_popup": "index.html",
+		"default_icon": "images/FreeMp3Logo-48.png"
+	  },
+	"icons": {
+        "48": "images/FreeMp3Logo-48.png",
+		"96": "images/FreeMp3Logo-96.png",
+        "128": "images/FreeMp3Logo-128.png"  
+    },
+	"background": {
+        "service_worker": "scripts/background.js"
+    },
+	"content_scripts": [
+    	{
+            "matches": ["https://music.youtube.com/*"],
+            "js": ["scripts/content.js"]
+        },
+		{
+            "matches": ["https://free-mp3-download.net/*"],
+            "js": ["scripts/content_mp3.js"]
+        }
+    ]
+}
