@@ -1,8 +1,8 @@
 //let background script know we are on https://free-mp3-download.net/
-chrome.runtime.sendMessage({message: "OnMP3Download"});
+browser.runtime.sendMessage({message: "OnMP3Download"});
 
 //receive song info with message from background script
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.message === "SongSent") {
 		var title = request.data;
         searchSong(title);
