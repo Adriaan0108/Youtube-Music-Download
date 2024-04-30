@@ -22,7 +22,7 @@ function createButton()
 function buttonClickHandler()
 {
 	var title = fetchData();
-	chrome.runtime.sendMessage({message: "ButtonClicked", data: title});
+	browser.runtime.sendMessage({message: "ButtonClicked", data: title});
 }
 
 //get song artist and title from elements
